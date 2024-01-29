@@ -1,0 +1,59 @@
+﻿@{
+
+}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h3>@ViewBag.Title</h3>
+    <br />
+    <p>@ViewBag.Message</p>
+
+    <a class="btn btn-default" href="/Veiculos/Adicionar">Adicionar &raquo;</a>
+
+    <br />
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th>Marca/Fabricante</th>
+                <th>Modelo</th>
+                <th>Ano</th>
+                <th>Fabricação</th>
+                <th>Cor</th>
+                <th>Combustivel</th>
+                <th>Automatico</th>
+                <th>Valor</th>
+                <th>Ativo</th>
+                <th>Ação</th>
+           
+            </tr>
+        </thead>
+        @foreach (var carros in ViewBag.Carros)
+        {
+            <tr>
+                <td>@carros.Nome</td>
+                <td>@carros.Modelo</td>
+                <td>@carros.Ano</td>
+                <td>@carros.Fabricacao</td>
+                <td>@carros.Cor</td>
+                <td>@carros.Combustivel</td>
+                <td>@carros.Automatico</td>
+                <td>@carros.Valor</td>
+                <td>@carros.Ativo</td>
+                <td><a href="/Veiculos/Alterar/@carros.Id">Alterar</a> | <a href="/Veiculos/Excluir/@carros.Id">Deletar</a></td>
+                
+            </tr>
+        }
+    </table>
+</body>
+</html>
+
